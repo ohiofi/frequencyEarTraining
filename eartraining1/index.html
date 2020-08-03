@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Ear Training 1 web app</title>
+<style>
+body{
+	font-family:"Futura", "Helvetica", "Myriad Pro", "Lucida Grande", "Arial", sans-serif;
+}
+#header{
+	display:block;
+	float:left;
+	width:100%;
+	height:60px;
+	margin:10px 0 10px 0;
+}
+.divider{
+	display:block;
+	float:left;
+	width:100%;
+	height:10px;
+	margin:10px 0 10px 0;
+}
+.topPlayButton{
+	display:block;
+	margin:0 auto;
+	padding:0 3px 0 3px;
+	position:relative;
+	height:30px;
+	line-height:30px;
+	width:150px;
+	border:2px solid black;
+	text-align:center;
+	background:rgba(255,255,255,1);
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	-webkit-box-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+}
+.playButton{
+	display:block;
+	margin:2px;
+	padding:0 3px 0 3px;
+	position:relative;
+	height:30px;
+	line-height:30px;
+	width:170px;
+	border:2px solid black;
+	text-align:center;
+	background:rgba(0,0,0,0);
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	-webkit-box-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+}
+
+.floatLeft{
+	float:left;
+}
+#piano{
+	display:block;
+	margin:0 auto 0 auto;
+	position:relative;
+	height:180px;
+	width:754px;
+	border:2px solid black;
+	background-image:url(../img/brushedMetal.jpg);
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	-webkit-box-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+}
+.margin{
+	display:block;
+	position:relative;
+	float:left;
+	height:180px;
+	width:26px;
+	margin:0;
+	text-align:left;
+	font-size:10px;
+}
+.key{
+	display:block;
+	position:relative;
+	float:left;
+	background-image:url(img/fader.png);
+	height:180px;
+	width:26px;
+	margin:10px 0 0 0;
+	text-align:left;
+	font:Arial, Helvetica, sans-serif;
+	font-size:10px;
+}
+.overlay{
+	display:block;
+	position:relative;
+	float:left;
+	height:30px;
+	/*width:26px;*/
+	margin:0;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+}
+.topPlayButton:hover{
+	background:rgba(0,0,255,0.3);
+}
+.topPlayButton:active{
+	background:rgba(72,61,139,0.7);
+}
+.playButton:hover{
+	background:rgba(0,0,255,0.3);
+}
+.playButton:active{
+	background:rgba(72,61,139,0.7);
+}
+.playOverlay{
+	display:block;
+	position:relative;
+	float:left;
+	height:30px;
+	/*width:100px;*/
+	margin:0;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+}
+.playOverlay:hover{
+	background:rgba(0,0,255,0.3);
+}
+.playOverlay:active{
+	background:rgba(72,61,139,0.7);
+}
+#footer{
+	display:block;
+	float:left;
+	width:100%;
+	height:20px;
+	text-align:center;
+	margin:10px 0 10px 0;
+}
+.hideFeedback{
+	display:none;
+}
+.showFeedback{
+	display:block;
+	text-align:center;
+	margin:0 auto 0 auto;
+}
+#greatJob{
+	text-align:center;
+	margin:0 auto 0 auto;
+}
+
+
+#copyright{
+	position:relative;
+	float:left;
+	margin:10px 0 0 0;
+	width:100%;
+	z-index:100;
+	text-decoration:none;
+}
+
+</style>
+</head>
+
+<body onload="redirect();" />
+
+    <div id="header">
+    	<div class="topPlayButton" onclick="play();">PLAY</div>
+        
+    </div>
+    <div class="divider">Tones</div>
+    <div class="playButton floatLeft" onclick="gimme('100hz');" onmouseover="preloader(0);">100 Hz</div>
+    <div class="playButton floatLeft" onclick="gimme('120hz');" onmouseover="preloader(1);">120 Hz</div>
+    <div class="playButton floatLeft" onclick="gimme('250hz');" onmouseover="preloader(2);">250 Hz</div>
+    <div class="playButton floatLeft" onclick="gimme('260hz');" onmouseover="preloader(3);">260 Hz</div>
+    <div class="playButton floatLeft" onclick="gimme('500hz');" onmouseover="preloader(4);">500 Hz</div>
+    <div class="playButton floatLeft" onclick="gimme('520hz');" onmouseover="preloader(5);">520 Hz</div>
+    <div class="playButton floatLeft" onclick="gimme('800hz');" onmouseover="preloader(6);">800 Hz</div>
+    <div class="playButton floatLeft" onclick="gimme('1000hz');" onmouseover="preloader(7);">1000 Hz</div>
+    <div class="playButton floatLeft" onclick="gimme('1500hz');" onmouseover="preloader(8);">1500 Hz</div>
+    <div class="playButton floatLeft" onclick="gimme('2000hz');" onmouseover="preloader(9);">2000 Hz</div>
+    <div class="playButton floatLeft" onclick="gimme('3000hz');" onmouseover="preloader(10);">3000 Hz</div>
+    <div class="playButton floatLeft" onclick="gimme('5000hz');" onmouseover="preloader(11);">5000 Hz</div>
+    <div class="playButton floatLeft" onclick="gimme('6000hz');" onmouseover="preloader(12);">6000 Hz</div>
+    <div class="playButton floatLeft" onclick="gimme('10000hz');" onmouseover="preloader(13);">10000 Hz</div>
+    <div class="divider">White Noise</div>
+    <div class="playButton floatLeft" onclick="gimme('whitenoise20hzto20000hz');" onmouseover="preloader(14);">20 Hz to 20000 Hz</div>
+    <div class="playButton floatLeft" onclick="gimme('whitenoise75hzto150hz');" onmouseover="preloader(15);">75 Hz to 150 Hz</div>
+    <div class="playButton floatLeft" onclick="gimme('whitenoise150hzto300hz');" onmouseover="preloader(16);">150 Hz to 300 Hz</div>
+    <div class="playButton floatLeft" onclick="gimme('whitenoise300hzto600hz');" onmouseover="preloader(17);">300 Hz to 600 Hz</div>
+    <div class="playButton floatLeft" onclick="gimme('whitenoise600hzto1200hz');" onmouseover="preloader(18);">600 Hz to 1200 Hz</div>
+    <div class="playButton floatLeft" onclick="gimme('whitenoise700hzto1400hz');" onmouseover="preloader(19);">700 Hz to 1400 Hz</div>
+    <div class="playButton floatLeft" onclick="gimme('whitenoise890hzto1100hz');" onmouseover="preloader(20);">890 Hz to 1100 Hz</div>
+    <div class="playButton floatLeft" onclick="gimme('whitenoise910hzto1090hz');" onmouseover="preloader(21);">910 Hz to 1090 Hz</div>
+    <div class="playButton floatLeft" onclick="gimme('whitenoise1200hzto2400hz');" onmouseover="preloader(22);">1200 Hz to 2400 Hz</div>
+    <div class="playButton floatLeft" onclick="gimme('whitenoise2400hzto4800hz');" onmouseover="preloader(23);">2400 Hz to 4800 Hz</div>
+    <div class="playButton floatLeft" onclick="gimme('whitenoise4800hzto9600hz');" onmouseover="preloader(24);">4800 Hz to 9600 Hz</div>
+    <div class="playButton floatLeft" onclick="gimme('whitenoise9600hzto19200hz');" onmouseover="preloader(25);">9600 Hz to 19200 Hz</div>
+    <div class="divider"></div>
+    <div class="playButton floatLeft" onclick="gimme('spectrumsweep');">Spectrum Sweep</div>
+    <div class="divider"></div>
+    <div id="footer">
+    	<div class="hideFeedback" id="greatJob">Great job!  Press the PLAY button to continue!</div>
+        <div class="hideFeedback" id="tryAgain">Try again</div>
+    </div>
+	<span id="blank"></span>
+    <span id="blank2"></span>
+    <div id="copyright">&copy; 2012 Justin Riley</div>
+
+</body>
+<script>
+var randomMP3=new Array("100hz","120hz","250hz","260hz","500hz","520hz","800hz","1000hz","1500hz","2000hz","3000hz","5000hz","6000hz","10000hz",'whitenoise20hzto20000hz','whitenoise75hzto150hz','whitenoise150hzto300hz','whitenoise300hzto600hz','whitenoise600hzto1200hz','whitenoise700hzto1400hz','whitenoise890hzto1100hz','whitenoise910hzto1090hz','whitenoise1200hzto2400hz','whitenoise2400hzto4800hz','whitenoise4800hzto9600hz','whitenoise9600hzto19200hz','spectrumsweep');
+var question;
+
+function newQuestion() {
+	oldQuestion=question;
+	question=randomMP3[(Math.floor ( ( Math.random ( ) * 27) ))];
+	while (oldQuestion==question) {
+		question=randomMP3[(Math.floor ( ( Math.random ( ) * 27) ))];
+	}
+}
+
+function play() {
+	playSound(question);
+	document.getElementById("tryAgain").className = "hideFeedback";
+	document.getElementById("greatJob").className = "hideFeedback";
+}
+function gimme(pressed) {
+	playSound(pressed);	
+	if (question==pressed) {
+  			///alert("Great Job! Press PLAY to continue!");
+			document.getElementById("tryAgain").className = "hideFeedback";
+			document.getElementById("greatJob").className = "showFeedback";
+			newQuestion();
+  		}
+		else {
+			document.getElementById("tryAgain").className = "showFeedback";
+			document.getElementById("greatJob").className = "hideFeedback";
+			setTimeout('document.getElementById("tryAgain").className = "hideFeedback"',2000);
+  		}
+}
+///function cheat(){
+///	///alert(question);
+///}
+
+function playSound(soundfile) {
+ 	document.getElementById("blank").innerHTML="<embed src=\""+soundfile+".mp3\" hidden=\"true\" autostart=\"true\" loop=\"false\" />";
+}
+
+var myVar;
+
+function preloader(i) {
+	document.getElementById("blank2").innerHTML="<embed src=\""+randomMP3[i]+".mp3\" hidden=\"true\" autostart=\"true\" loop=\"false\" volume=\"0\" />";
+}
+
+function redirect() {
+	window.location = "http://www.ohiofi.com/mainmenu.php";
+}
+
+newQuestion();
+
+</script>
+</html>
