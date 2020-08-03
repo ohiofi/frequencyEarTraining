@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Graphic EQ web app</title>
+<style>
+body{
+	font-family:"Futura", "Helvetica", "Myriad Pro", "Lucida Grande", "Arial", sans-serif;
+}
+#header{
+	display:block;
+	float:left;
+	width:100%;
+	margin:10px 0 10px 0;
+}
+#playButton{
+	display:block;
+	margin:0 auto 0 auto;
+	position:relative;
+	height:30px;
+	line-height:30px;
+	width:100px;
+	border:2px solid black;
+	text-align:center;
+	background-image:url(img/brushedMetal.jpg);
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	-webkit-box-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+}
+#stage{
+	display:block;
+	float:left;
+	width:100%;
+}
+
+#piano{
+	display:block;
+	margin:0 auto 0 auto;
+	position:relative;
+	height:180px;
+	width:754px;
+	border:2px solid black;
+	background-image:url(img/brushedMetal.jpg);
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	-webkit-box-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+}
+.margin{
+	display:block;
+	position:relative;
+	float:left;
+	height:180px;
+	width:26px;
+	margin:0;
+	text-align:left;
+	font-size:10px;
+}
+.key{
+	display:block;
+	position:relative;
+	float:left;
+	background-image:url(img/fader.png);
+	height:180px;
+	width:26px;
+	margin:10px 0 0 0;
+	text-align:left;
+	font:Arial, Helvetica, sans-serif;
+	font-size:10px;
+}
+.overlay{
+	display:block;
+	position:relative;
+	float:left;
+	height:160px;
+	width:26px;
+	margin:0;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+}
+.overlay:hover{
+	background:rgba(0,0,255,0.3);
+}
+.overlay:active{
+	background:rgba(72,61,139,0.7);
+}
+.playOverlay{
+	display:block;
+	position:relative;
+	float:left;
+	height:30px;
+	width:100px;
+	margin:0;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+}
+.playOverlay:hover{
+	background:rgba(0,0,255,0.3);
+}
+.playOverlay:active{
+	background:rgba(72,61,139,0.7);
+}
+#footer{
+	display:block;
+	float:left;
+	width:100%;
+	height:20px;
+	text-align:center;
+	margin:10px 0 10px 0;
+}
+.hideFeedback{
+	display:none;
+}
+.showFeedback{
+	display:block;
+	text-align:center;
+	margin:0 auto 0 auto;
+}
+#greatJob{
+	text-align:center;
+	margin:0 auto 0 auto;
+}
+
+
+#copyright{
+	position:relative;
+	float:left;
+	margin:10px 0 0 0;
+	width:100%;
+	z-index:100;
+	text-decoration:none;
+}
+
+</style>
+</head>
+
+<body onload="preloader('01.mp3');" />
+
+    <div id="header">
+    	<div id="playButton">
+        	<div class="playOverlay" onclick="play();">Play</div>
+        </div>
+    </div>
+    <div id="stage">
+        <div id="piano">
+        	<div class="margin">
+            </div>
+        	<div class="key">
+            	<div class="overlay" onclick="gimme(01);">&nbsp;40</div>
+            </div>
+            <div class="key">
+            	<div class="overlay" onclick="gimme(02);">&nbsp;50</div>
+            </div>
+        	<div class="key">
+            	<div class="overlay" onclick="gimme(03);">&nbsp;63</div>
+            </div>
+        	<div class="key">
+            	<div class="overlay" onclick="gimme(04);">&nbsp;80</div>
+            </div>
+        	<div class="key">
+            	<div class="overlay" onclick="gimme(05);">100</div>
+            </div>
+        	<div class="key">
+            	<div class="overlay" onclick="gimme(06);">125</div>
+            </div>
+            <div class="key">
+            	<div class="overlay" onclick="gimme(07);">160</div>
+            </div>
+            <div class="key">
+            	<div class="overlay" onclick="gimme(08);">200</div>
+            </div>
+            <div class="key">
+            	<div class="overlay" onclick="gimme(09);">250</div>
+            </div>
+            <div class="key">
+            	<div class="overlay" onclick="gimme(10);">315</div>
+            </div>
+            <div class="key">
+            	<div class="overlay" onclick="gimme(11);">400</div>
+            </div>
+            <div class="key">
+            	<div class="overlay" onclick="gimme(12);">500</div>
+            </div>
+            <div class="key">
+            	<div class="overlay" onclick="gimme(13);">630</div>
+            </div>
+            <div class="key">
+            	<div class="overlay" onclick="gimme(14);">800</div>
+            </div>
+            <div class="key">
+            	<div class="overlay" onclick="gimme(15);">&nbsp;1k</div>
+            </div>
+            <div class="key">
+            	<div class="overlay" onclick="gimme(16);">1.25</div>
+            </div>
+            <div class="key">
+            	<div class="overlay" onclick="gimme(17);">1.6</div>
+            </div>
+            <div class="key">
+            	<div class="overlay" onclick="gimme(18);">&nbsp;2k</div>
+            </div>
+            <div class="key">
+            	<div class="overlay" onclick="gimme(19);">2.5</div>
+            </div>
+            <div class="key">
+            	<div class="overlay" onclick="gimme(20);">3.15</div>
+            </div>
+            <div class="key">
+            	<div class="overlay" onclick="gimme(21);">&nbsp;4k</div>
+            </div>
+            <div class="key">
+            	<div class="overlay" onclick="gimme(22);">&nbsp;5k</div>
+            </div>
+            <div class="key">
+            	<div class="overlay" onclick="gimme(23);">6.3</div>
+            </div>
+            <div class="key">
+            	<div class="overlay" onclick="gimme(24);">&nbsp;8k</div>
+            </div>
+            <div class="key">
+            	<div class="overlay" onclick="gimme(25);">10k</div>
+            </div>
+            <div class="key">
+            	<div class="overlay" onclick="gimme(26);">12.5</div>
+            </div>
+            <div class="key">
+            	<div class="overlay" onclick="gimme(27);">16k</div>
+            </div>
+            <div class="margin">
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+    	
+    </div>
+	<span id="blank"></span>
+    <div id="copyright">&copy; 2011 Justin Riley</div>
+<div class="hideFeedback" id="greatJob">Great job!  Press the PLAY button to continue!</div>
+        <div class="hideFeedback" id="tryAgain">Try again</div>
+</body>
+<script>
+var question=0
+
+function newQuestion() {
+	var randomNumber=Math.floor(Math.random()*28)
+	if (randomNumber==question) {
+		randomNumber++;
+		if (randomNumber>27) {
+			randomNumber=1;
+		}
+	}
+	if (randomNumber<1){
+		randomNumber=1;
+	}
+	question=randomNumber;
+}
+
+function play() {
+	playSound(question);
+	document.getElementById("tryAgain").className = "hideFeedback";
+	document.getElementById("greatJob").className = "hideFeedback";
+}
+function gimme(pressed) {
+	playSound(pressed);	
+	if (question==pressed) {
+  			///alert("Great Job! Press PLAY to continue!");
+			document.getElementById("tryAgain").className = "hideFeedback";
+			document.getElementById("greatJob").className = "showFeedback";
+			newQuestion();
+  		}
+		else {
+			document.getElementById("tryAgain").className = "showFeedback";
+			document.getElementById("greatJob").className = "hideFeedback";
+			setTimeout('document.getElementById("tryAgain").className = "hideFeedback"',2000);
+  		}
+}
+///function cheat(){
+///	///alert(question);
+///}
+
+function playSound(soundfile) {
+ 	document.getElementById("blank").innerHTML="<embed src=\""+soundfile+".mp3\" hidden=\"true\" autostart=\"true\" loop=\"false\" />";
+}
+
+
+function preloader(soundfile) {
+ 	document.getElementById("blank").innerHTML= "<embed src=\""+soundfile+"\" hidden=\"true\" autostart=\"true\" loop=\"false\" volume=\"0\" />";
+}
+
+newQuestion();
+
+</script>
+</html>
